@@ -58,6 +58,22 @@ class TreeNode:
             return True, self
 
 
+def search_list_bst(elements: list[int], target: int) -> None:
+    tree = TreeNode(elements[0])
+
+    for element in elements[1:]:
+        if not isinstance(element, int):
+            continue
+        tree.insert(element)
+
+    found, content = tree.find(target)
+
+    if found:
+        print(f"Target {target} was found with the content {content}")
+    else:
+        print(f"Target {target} wasn't found")
+
+
 tree = TreeNode(5)
 tree.insert(4)
 tree.insert(6)
