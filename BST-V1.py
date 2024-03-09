@@ -15,3 +15,17 @@ class TreeNode:
                 self.right = TreeNode(value)
             else:
                 self.right.inser(value)
+
+    def find(self, value):
+        if value < self.value:
+            if not self.left:
+                return False
+            else:
+                self.left.find(value)
+        elif value > self.value:
+            if not self.right:
+                return False
+            else:
+                self.right.find(value)
+        else:
+            return True
