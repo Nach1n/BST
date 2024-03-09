@@ -22,6 +22,27 @@ class TreeNode:
             else:
                 self.right.insert(value, content)
 
+    def inorder_traversal(self):
+        if self.left:
+            self.left.inorder_traversal()
+        print(self.value)
+        if self.right:
+            self.right.inorder_traversal()
+
+    def preorder_traversal(self):
+        print(self.value)
+        if self.left:
+            self.left.preorder_traversal()
+        if self.right:
+            self.right.preorder_traversal()
+
+    def postorder_traversal(self):
+        if self.left:
+            self.left.postorder_traversal()
+        if self.right:
+            self.right.postorder_traversal()
+        print(self.value)
+
     def find(self, value) -> bool:
         if value < self.value:
             if not self.left:
@@ -44,6 +65,19 @@ tree.insert(7, {"data": "My data:)"})
 tree.insert(2)
 tree.insert(1)
 tree.insert(15)
+tree.insert(3)
+tree.insert(8)
+tree.insert(9)
+tree.insert(16)
+
+print("inorder_traversal")
+tree.inorder_traversal()
+print("***")
+print("preorder_traversal")
+tree.preorder_traversal()
+print("***")
+print("postorder_traversal")
+tree.preorder_traversal()
 
 print(tree.find(7).content)
 print(tree.find(7).content["data"])
