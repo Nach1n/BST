@@ -4,7 +4,7 @@ class TreeNode:
         self.right = None
         self.value = value
 
-    def insert(self, value):
+    def insert(self, value) -> None:
         if value == self.value:
             # Avoiding repeated values in the nodes
             return
@@ -19,17 +19,17 @@ class TreeNode:
             else:
                 self.right.insert(value)
 
-    def find(self, value):
+    def find(self, value) -> bool:
         if value < self.value:
             if not self.left:
                 return False
             else:
-                self.left.find(value)
+                return self.left.find(value)
         elif value > self.value:
             if not self.right:
                 return False
             else:
-                self.right.find(value)
+                return self.right.find(value)
         else:
             return True
 
@@ -43,3 +43,5 @@ tree.insert(1)
 tree.insert(15)
 
 print(tree.left.left.left.value)
+print(tree.find(22))
+print(tree.find(15))
