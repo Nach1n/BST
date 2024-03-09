@@ -5,6 +5,9 @@ class TreeNode:
         self.value = value
 
     def insert(self, value):
+        if value == self.value:
+            # Avoiding repeated values in the nodes
+            return
         if value < self.value:
             if not self.left:
                 self.left = TreeNode(value)
