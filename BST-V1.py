@@ -43,19 +43,19 @@ class TreeNode:
             self.right.postorder_traversal()
         print(self.value)
 
-    def find(self, value) -> bool:
+    def find(self, value):
         if value < self.value:
             if not self.left:
-                return None
+                return False, None
             else:
                 return self.left.find(value)
         elif value > self.value:
             if not self.right:
-                return None
+                return False, None
             else:
                 return self.right.find(value)
         else:
-            return self
+            return True, self
 
 
 tree = TreeNode(5)
@@ -80,5 +80,5 @@ print("***")
 print("postorder_traversal")
 tree.postorder_traversal()
 
-print(tree.find(7).content)
-print(tree.find(7).content["data"])
+print(tree.find(7)[1].content)
+print(tree.find(7)[1].content["data"])
